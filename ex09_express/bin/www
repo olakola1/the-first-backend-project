@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 /**
  * Module dependencies.
  */
@@ -9,7 +8,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 import createDebug from "debug";
-const debug = createDebug ('ex09_express');
+const debug = createDebug ('ex09_express:server');
 import * as http from "node:http";
 
 /**
@@ -90,7 +89,12 @@ const server = http.createServer(app);
  */
 
 server.listen(port);
+
+console.log(`Сервер запущен на http://localhost:${port}`);
+
 server.on('error', onError);
 server.on('listening', onListening);
+
+
 
 
